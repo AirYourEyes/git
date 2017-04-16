@@ -39,4 +39,14 @@
 ### git remote 
 - 远程仓库的相关操作
 
+### git help
+- 查看git支持的命令
+
+### git blame
+- 查看谁修改了文档
+
+### git log
+- 查看历史提交记录
+
+
 
