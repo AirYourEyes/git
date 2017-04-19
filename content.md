@@ -48,6 +48,9 @@
 ### git log
 - 查看历史提交记录
 
+#### git log <filename>
+- 查看某一文件提交的历史
+
 ### git clean 
 - 清除工作区中内容
 
@@ -64,6 +67,14 @@
 
 ### git commit -a -m "message"
 - 将文件从工作区直接提交到仓库当中
+
+### git show 
+- 显示提交的信息
+
+#### git show HEAD
+- 显示最后一次提交的信息
+
+
 
 
 
