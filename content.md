@@ -9,6 +9,9 @@
 ### git push
 - 将代码从本地提交到远程仓库
 
+#### git push -f 
+- 回撤远程仓仓库
+
 ### git pull
 - 将代码从元辰仓库拉下来
 
@@ -78,9 +81,60 @@
 - 比较文件之间的内容差别
 - git diff: 比较工作目录与暂存区之间的文件的区别，也就是为提交到暂存区的内容
 - git diff --cached： 比较暂存区域仓库之间的区别，也就是显示要提交到仓库的内容
-- git dif HEAD：比较工作目录与仓库最后一次提交之间的区别
+- git diff HEAD：比较工作目录与仓库最后一次提交之间的区别
 ![git-diff](images/git-diff.png) 
 - 绿色部分表示的是已经提交到仓库中的内容
+
+### git reset
+
+#### git reset HEAD
+- 回撤暂存区的内容到工作目录
+
+#### git reset HEAD^ --soft
+- 回撤提交到暂存区
+
+#### git reset [hashcode] --hard
+- 回撤提交，放弃变更
+
+### git checkout [commit hashcode] [filename]
+- 将指定的文件从仓库中恢复到工作区中
+
+### 先git add . 后git commit --amend -m "message"
+- 回撤最后一次的提交
+
+### git rebase -i HEAD~3
+- 变基操作，改写历史提交
+
+### git show
+- 查看提交的具体情况
+
+### git tag
+
+#### git tag foo
+- 在当前的提交上，打标签foo
+
+#### git tag foo -m "message"
+- 在当前的提交上，打标签foo，并给message信息注释
+
+#### git tag foo HEAD~4 
+- 在当前提交之前的第四个版本上，打标签foo
+
+#### git tag 
+- 列出所有的标签
+
+#### git tag -d tagname
+- 删除标签
+
+#### git push origin --tags
+- 把本地所有标签推送到远程仓库
+
+#### git push origin tagname
+- 将本地指定的标签推送到远程操仓库上
+
+#### git push origin :refs/tags/tagname
+- 删除远程仓库中标签名为tagname的标签
+
+
 
 
 
