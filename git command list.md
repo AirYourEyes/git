@@ -134,6 +134,74 @@
 #### git push origin :refs/tags/tagname
 - 删除远程仓库中标签名为tagname的标签
 
+### git brancn
+- 查看所有分支
+
+#### git branch branchname
+- 在当前分支上创建名字为brancname的分支
+
+#### git branch -d branchname
+- 删除分支名为branchname的分支，若该分支有新的内容，但是还没有与其他的分支进行合并，此时删除分支失败
+
+#### git branch -D branchname
+- 删除branchname的分支，不管其是否与其他的分支合并过
+
+#### git branch -m old_naem new_name
+- 修改分支的名字
+
+#### git branch -r 
+- 列出远程分支
+
+#### git branch --merged
+- 查看已经合并的分支
+
+#### git branch --no-merged
+- 查看未合并的分支
+
+#### git branch -r --merge
+- 列出远程合并的分支
+
+#### git checkout branchname
+- 切换到名字为branchname的分支上
+
+#### git checkout -t origin/foo
+- 取出远程foo分支
+
+#### git checkout -b branchname
+- 创建名为branchname的分支，并且直接切换到该分支上
+
+### git merge branchname
+- 将名字为branchname的分支合并到当前的分支上
+
+### 冲突
+- 在不同的分支上修改同一文件
+- 不同的人修改同一个文件
+- 不同的仓库修改了同一文件
+- 冲突只有在合并分支的时候才发生
+- 发生冲突并不可怕，冲突的代码不会丢失
+- 解决冲突，重新提交，commit时不要给message
+- 冲突信息的格式
+
+### git push origin <space>:<remote branch>
+- 删除远程分支
+
+### git stash
+- 保存进度
+
+#### git stash
+- 弹出进度
+
+#### git stash pop
+- 查看stash列表
+
+#### git stash clear
+- 删除stash列表
+
+
+
+
+
+
 
 
 
