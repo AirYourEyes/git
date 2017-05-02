@@ -197,7 +197,8 @@
 #### git stash clear
 - 删除stash列表
 
-
+#### git checkout filename
+- 将名字filename的文件回退到与仓库中相同的版本，如果你在工作区中删除了该文件，那么也可使用这种方式回退回来，当然前提是仓库中有这个删除了的文件
 
 
 
