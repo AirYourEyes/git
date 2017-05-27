@@ -362,4 +362,55 @@ $ git mv file_from file_to
 - 执行命令`git config --global alias.unstage 'reset HEAD --'`，执行`git unstage fileA`相当于执行`git reset HEAD -- fileA`
 - 可以使用类似于上面的做法给其他的命令起别名
 
+## 第三章 分支
 
+### 1. 创建分支
+- `$ git branch <branchName>`创建一个branchName分支
+- 使用以下的命令可以查看各个分支当前所指的对象`$ git log --oneline --decorate`
+
+### 2. 切换分支
+- 使用命令`$ git checkout <branchname>`，branchname表示的是分支的名称，如`$ git checkout testing`表示的是切换到testing分支
+- 此时HEAD指向当前分支
+- 切换分支的同时工作目录中的内容将恢复到该分支原先的状态
+- 使用命令`git log --oneline --decorate --graph --all`可以查看所有的分支的情况
+
+### 3. 创建并切换到新建的分支
+- 使用带-b参数的`git checkout`命令，如`git checkout -b iss53`，创建了一条名为iss53的分支，并将当前分支切换到该分支上
+
+### 4. 合并分支
+- 使用`git merge <branchname>`命令，该命令将branchname代表的分支合并到当前分支
+
+### 5. 删除分支
+- 使用`git branch -d `命令，后面跟的是要删除的分支名，如`$ git branch -d hotfix`表示删除hotfix分支
+
+### 6. 不同的合并
+- Fast-forward合并：你试图合并两个分支时，如果顺着一个分支走下去能够到达另一个分支，那么 Git 在合并两者的时候，只会简单的将指针向前推进（指针右移），因为这种情况下的合并操作没有需要解决的分歧
+- 简单的三方合并：如合并的两条分支出现了分叉，那么合并的时候，会将两条分支最后一次提交
+与两条分支的祖先提交进行合并
+
+### 7. 查看分支
+- 列出所有分支：`git branch`
+- 列出所有分支最后一次提交：`git branch -v`
+- --merged与--no-merged 这两个有用的选项可以过滤这个列表中已经合并或尚未合并到当前分支的分支。使用--merge选项输出的列表中，前面没有星号标志的分支都是可以通过`git branch -d`删除的，因为它们都已经合并到另外的分支上了，删除它们并不会丢失信息
+
+### 8. 分支工作流
+- 长期分支
+	- 较稳定
+	- 在整个项目周期都存在
+- 特性分支
+	- 短期分支
+	- 用来实现单一特性或其相关工作 
+- 远程分支
+	- 远程引用：对远程仓库分支的引用
+	- 获取远程引用的列表：`git ls-remote (remote)`或者`git remote show (remote)` 
+	- 远程跟踪分支
+		- 概述 
+			- 是对远程分支状态的引用
+			- 以(remote)/(branch)的形式命名
+			- 远程跟踪分支像是你上次连接到远程仓库时，那些分支所处状态的书签
+			- "master"是当你运行 git init 时默认的起始分支名字
+			- origin是当你运行 git clone 时默认的远程仓库名字 
+			- 当我们不连接服务器的时候，远程跟踪分支的状态是不会改变的，即在本地仓库中的origin/master指针不发生移动
+		- 拉取：使用`git fetch （remote）`可以从远程服务器中获取本地没有的更新，并将origin/master指针指向新的、更新后的位置，但要注意的是，执行该命令不会自动进行合并
+		- 推送：使用`git push (remote) (branch)`命令，该命令表示的是将本地当前分支推送到远程分支上。其实上面的命令省略了很多细节，完整的push命令如下：`git push (remote) (local:branch):(remote:branch)`表示的是将（local:branch）推送到（remote:branch）
+		- 
